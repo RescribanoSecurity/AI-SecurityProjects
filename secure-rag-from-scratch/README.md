@@ -23,6 +23,9 @@ The focus is on architecture, security decisions, and explainability.
 
 Client → FastAPI → Input Security → RAG Pipeline → Output Security → Audit → Response
 
+## High-level Architecture
+
+```mermaid
 flowchart LR
     User["User / Client"]
     API["FastAPI API"]
