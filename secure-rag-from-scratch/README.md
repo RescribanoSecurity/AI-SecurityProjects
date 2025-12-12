@@ -27,15 +27,7 @@ Client → FastAPI → Input Security → RAG Pipeline → Output Security → A
 
 ```mermaid
 flowchart LR
-    User["User / Client"]
-    API["FastAPI API"]
-    InputSec["Input Security<br/>(Prompt Injection Detection)"]
-    RAG["RAG Pipeline"]
-    VS["Vector Store<br/>(In-Memory)"]
-    LLM["LLM Client<br/>(Mock / Provider)"]
-    OutputSec["Output Security<br/>(PII Detection & Redaction)"]
-    Audit["Audit Logging"]
-    Response["HTTP Response"]
+    A --> B
 
     User --> API
     API --> InputSec
