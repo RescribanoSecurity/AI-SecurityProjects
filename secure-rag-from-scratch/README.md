@@ -23,6 +23,27 @@ The focus is on architecture, security decisions, and explainability.
 
 Client → FastAPI → Input Security → RAG Pipeline → Output Security → Audit → Response
 
+flowchart LR
+    User["User / Client"]
+    API["FastAPI API"]
+    InputSec["Input Security<br/>(Prompt Injection Detection)"]
+    RAG["RAG Pipeline"]
+    VS["Vector Store<br/>(In-Memory)"]
+    LLM["LLM Client<br/>(Mock / Provider)"]
+    OutputSec["Output Security<br/>(PII Detection & Redaction)"]
+    Audit["Audit Logging"]
+    Response["HTTP Response"]
+
+    User --> API
+    API --> InputSec
+    InputSec --> RAG
+    RAG --> VS
+    RAG --> LLM
+    LLM --> OutputSec
+    OutputSec --> Audit
+    Audit --> Response
+    Response --> User
+
 ---
 
 ## Execution modes (APP_MODE)
