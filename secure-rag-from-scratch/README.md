@@ -1,32 +1,76 @@
-# Secure RAG from Scratch
+# Secure RAG from Scratch (Technical Documentation)
 
-A minimal retrieval augmented generation (RAG) starter that keeps dependencies light and encourages secure defaults.
+📄 This documentation is available in:
+- 🇬🇧 English (this document)
+- 🇪🇸 Español → README_ES.md
 
-## Project layout
-- `app/`: FastAPI app plus RAG primitives.
-- `scripts/ingest.py`: CLI helper to ingest `.txt` files from `data/raw` into the JSON-backed index.
-- `data/raw/`: Place text files here before running ingestion.
-- `infra/requirements.txt`: Python dependencies for the app.
-- `.env.example`: Environment variable template for local runs.
+---
 
-## Getting started
-1. Create a virtual environment and install dependencies:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install -r infra/requirements.txt
-   ```
-2. Copy `.env.example` to `.env` and set values as needed.
-3. Ingest documents:
-   ```bash
-   python scripts/ingest.py
-   ```
-4. Run the API locally:
-   ```bash
-   uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-   ```
-5. Query the service:
-   ```bash
-   curl -X POST http://localhost:8000/query -H "Content-Type: application/json" \\
-     -d '{"question": "What does this project demonstrate?"}'
-   ```
+## Purpose of this project
+
+This project implements a **secure Retrieval-Augmented Generation (RAG) system** from scratch, designed to:
+
+- Understand how RAG pipelines work end to end
+- Apply real security controls to LLM-based systems
+- Separate security logic from infrastructure and providers
+- Evolve cleanly from local development to cloud environments
+
+The focus is on architecture, security decisions, and explainability.
+
+---
+
+## High-level Architecture
+
+Client → FastAPI → Input Security → RAG Pipeline → Output Security → Audit → Response
+
+---
+
+## Execution modes (APP_MODE)
+
+local_basic  – Baseline RAG with input security  
+local_secure – Adds output security (PII) and audit logging
+
+---
+
+## Project Structure
+
+- app/main.py – FastAPI entry point and orchestration
+- app/security.py – Prompt injection detection
+- app/rag.py – Core RAG pipeline
+- app/vector_store.py – In-memory vector store
+- app/llm_client.py – Mock LLM client
+- app/security_output.py – PII detection and redaction
+- app/audit.py – Structured audit logging
+
+---
+
+## Security Controls
+
+- Prompt injection detection
+- PII detection and redaction
+- Structured audit logging
+
+---
+
+## Testing
+
+Manual tests cover:
+- Prompt injection blocking
+- PII redaction
+- Audit log generation
+
+---
+
+## Lessons Learned
+
+- External dependencies can block development
+- Local-first design accelerates security testing
+- Security must be independent of LLM providers
+
+---
+
+## Future Work
+
+- Cloud vector stores
+- Dockerized deployment
+- CI/CD and security testing
