@@ -18,9 +18,11 @@ This project implements a **secure Retrieval-Augmented Generation (RAG) system**
 The focus is on architecture, security decisions, and explainability.
 
 ---
+
 ```mermaid
 flowchart LR
     A --> B
+
 ---
 
 ## Execution modes (APP_MODE)
