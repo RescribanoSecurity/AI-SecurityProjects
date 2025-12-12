@@ -1,34 +1,47 @@
-from __future__ import annotations
-
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
-from .config import get_settings
-from .rag import RAGPipeline
+from app.rag import rag_pipeline
+from app.security import detect_prompt_injection
 
-app = FastAPI(title="Secure RAG from Scratch")
-settings = get_settings()
-pipeline = RAGPipeline(settings)
+from app.config import APP_MODE
+from app.security_output import detect_pii, redact_pii
+from app.audit import audit_event
+
+app = FastAPI(title="Secure RAG from Scratch - Phase 1")
 
 
 class QueryRequest(BaseModel):
-    question: str
+    query: str = Field(..., min_length=1, max_length=2000)
 
 
-class QueryResponse(BaseModel):
-    answer: str
+@app.post("/query")
+def query_rag(req: QueryRequest):
+    is_malicious, reason = detect_prompt_injection(req.query)
 
+    if is_malicious:
+        audit_event(
+            "blocked_input",
+            req.query,
+            {"reason": reason}
+        )
+        raise HTTPException(
+            status_code=400,
+            detail="Query blocked by security policy",
+        )
 
-@app.get("/health")
-def health() -> dict:
-    return {"status": "ok"}
+    answer = rag_pipeline(req.query)
 
+    # --- FASE 2: output security ---
+    if APP_MODE == "local_secure":
+        findings = detect_pii(answer)
+        if findings:
+            audit_event(
+                "pii_detected",
+                req.query,
+                {"types": findings}
+            )
+            answer = redact_pii(answer)
 
-@app.post("/query", response_model=QueryResponse)
-def query(request: QueryRequest) -> QueryResponse:
-    question = request.question.strip()
-    if not question:
-        raise HTTPException(status_code=400, detail="Question must not be empty")
-
-    answer = pipeline.answer(question)
-    return QueryResponse(answer=answer)
+    return {"answer": answer}
+  
