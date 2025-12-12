@@ -18,27 +18,9 @@ This project implements a **secure Retrieval-Augmented Generation (RAG) system**
 The focus is on architecture, security decisions, and explainability.
 
 ---
-
-## High-level Architecture
-
-Client → FastAPI → Input Security → RAG Pipeline → Output Security → Audit → Response
-
-## High-level Architecture
-
 ```mermaid
 flowchart LR
     A --> B
-
-    User --> API
-    API --> InputSec
-    InputSec --> RAG
-    RAG --> VS
-    RAG --> LLM
-    LLM --> OutputSec
-    OutputSec --> Audit
-    Audit --> Response
-    Response --> User
-
 ---
 
 ## Execution modes (APP_MODE)
