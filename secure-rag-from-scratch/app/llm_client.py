@@ -7,6 +7,5 @@ def call_llm(prompt: str) -> str:
     This avoids external dependencies and quota issues.
     """
     return (
-        "For more information email rescribano@correjemplo.comp "
-        "or call +34 600 123 456."
+        "A RAG combines retrieval and text generation"
     )
