@@ -4,7 +4,7 @@ import re
 from typing import Tuple
 
 
-# Patrones comunes de prompt injection
+# Common prompt injection patterns
 SUSPICIOUS_PATTERNS = [
     r"ignore (all|previous) instructions",
     r"disregard the above",
@@ -19,14 +19,14 @@ SUSPICIOUS_PATTERNS = [
 
 
 def normalize_query(query: str) -> str:
-    """Normaliza la query para evitar trucos básicos."""
+    """Normalizes the query to avoid basic tricks."""
     return query.strip().lower()
 
 
 def detect_prompt_injection(query: str) -> Tuple[bool, str]:
     """
-    Detecta intentos básicos de prompt injection.
-    Devuelve (is_malicious, reason)
+    Detects basic prompt injection attempts.
+    Returns (is_malicious, reason)
     """
     normalized = normalize_query(query)
 
@@ -35,4 +35,3 @@ def detect_prompt_injection(query: str) -> Tuple[bool, str]:
             return True, f"Matched suspicious pattern: {pattern}"
 
     return False, "OK"
-

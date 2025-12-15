@@ -9,14 +9,14 @@ def build_prompt(query: str, contexts: list[str]) -> str:
     context_block = "\n\n---\n\n".join(contexts) if contexts else ""
 
     return f"""
-Eres un asistente que responde SOLO usando el contexto proporcionado.
-Si la respuesta no está en el contexto, responde exactamente:
-"No dispongo de datos suficientes para responder."
+You are an assistant that answers ONLY using the provided context.
+If the answer is not in the context, respond exactly:
+"I do not have enough data to answer."
 
-[CONTEXTO]
+[CONTEXT]
 {context_block}
 
-[PREGUNTA]
+[QUESTION]
 {query}
 """.strip()
 
@@ -25,4 +25,3 @@ def rag_pipeline(query: str) -> str:
     contexts = search_docs(query, k=TOP_K)
     prompt = build_prompt(query, contexts)
     return call_llm(prompt)
-

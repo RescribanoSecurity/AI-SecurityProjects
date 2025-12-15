@@ -102,6 +102,23 @@ sequenceDiagram
 
 ---
 
+## Validation and Testing (Phase 1 & 2)
+
+This section documents the **manual validation performed** during local development.
+The goal is to validate **security behavior**, not model quality.
+
+
+### Test 1 
+### API Startup
+
+- Command executed:
+  uvicorn app.main:app --reload
+- Expected result:
+  - API starts without errors
+  - Swagger UI available at /docs
+
+
+
 ## Notes
 
 - Security controls are external to the LLM.

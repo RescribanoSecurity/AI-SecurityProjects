@@ -7,7 +7,6 @@ def call_llm(prompt: str) -> str:
     This avoids external dependencies and quota issues.
     """
     return (
-        "Para más información escribe a rescribano@correjemplo.comp"
-	"o llama al teléfono +34 600 123 456"
+        "For more information email rescribano@correjemplo.comp "
+        "or call +34 600 123 456."
     )
-
