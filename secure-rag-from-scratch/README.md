@@ -1,5 +1,17 @@
 # Secure RAG from Scratch – Technical Documentation
 
+## Architecture – Version 1 (Local Secure RAG)
+
+This diagram represents **Architecture v1**, focused on:
+- Local execution
+- Security-first design
+- No external dependencies
+- Explicit control points for security and audit
+
+This architecture will evolve in future versions (cloud, persistence, MLOps),
+but v1 serves as the **baseline reference**.
+
+
 ## High-level Architecture
 
 Client → FastAPI → Input Security → RAG Pipeline → Output Security → Audit → Response
