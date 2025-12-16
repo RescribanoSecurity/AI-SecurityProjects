@@ -2,7 +2,7 @@
 
  Este README está disponible en:
 - EN English → [README.md](README.md)
-- 🇪🇸 Español (este documento)
+- ES Español (este documento)
 
 ---
 
@@ -57,8 +57,8 @@ Un sistema RAG **diseñado con la seguridad como eje central**, construido de fo
 Cada fase es **ejecutable, comprobable y documentada**, incluyendo decisiones de diseño y lecciones aprendidas.
 
  Documentación técnica completa:
-- 🇬🇧 [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
-- EN [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
+- EN [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
+- ES [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
 
 ---
 

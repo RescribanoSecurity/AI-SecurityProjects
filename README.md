@@ -1,8 +1,8 @@
 # AI Security Learning Lab (LLMs · Secure RAG · Cloud · MLOps)
 
 This README is available in:
-- 🇬🇧 English (this document)
-- 🇪🇸 Español → [README_ES.md](README_ES.md)
+- EN English (this document)
+- ES Español → [README_ES.md](README_ES.md)
 
 ---
 
@@ -58,7 +58,7 @@ Each phase is **runnable, testable, and documented**, including design decisions
 
  Full technical documentation:
 - EN [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
-- 🇪🇸 [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
+- ES [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
 
 ---
 
