@@ -7,5 +7,5 @@ def call_llm(prompt: str) -> str:
     This avoids external dependencies and quota issues.
     """
     return (
-        "A RAG combines retrieval and text generation"
+        "A RAG combines retrieval and text generation."
     )

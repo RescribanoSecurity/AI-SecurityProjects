@@ -1,18 +1,40 @@
 # Secure RAG from Scratch – Technical Documentation
 
+## Introduction
+
+This project is a **personal learning journey** focused on understanding how to design, secure, and validate
+LLM-based systems, starting from first principles.
+
+Instead of relying on abstract diagrams or managed services, the goal is to:
+- Build a Retrieval-Augmented Generation (RAG) system from scratch
+- Apply concrete security controls
+- Validate behavior through real tests
+- Document both successes and failures
+
+This repository reflects **what I actually tested and learned**, not just what worked on the first try.
+
+## Project Goals
+
+The main goals of this project are:
+
+- Understand how RAG pipelines work end to end
+- Identify real security risks in LLM-based systems
+- Apply input, output, and audit controls
+- Learn by breaking, fixing, and validating the system
+- Create a solid baseline before moving to cloud or MLOps environments
+
 ## Architecture – Version 1 (Local Secure RAG)
 
-This diagram represents **Architecture v1**, focused on:
+This repository currently implements **Architecture v1**, designed as a local, security-first baseline.
+
+Key characteristics:
 - Local execution
-- Security-first design
-- No external dependencies
-- Explicit control points for security and audit
+- No external dependencies required to test security
+- Explicit control points for input validation, output filtering, and auditing
+- Configuration-based security modes (`local_basic`, `local_secure`)
 
-This architecture will evolve in future versions (cloud, persistence, MLOps),
-but v1 serves as the **baseline reference**.
+This version serves as a **reference baseline** that will evolve in future iterations.
 
-
-## High-level Architecture
 
 Client → FastAPI → Input Security → RAG Pipeline → Output Security → Audit → Response
 
@@ -63,6 +85,24 @@ flowchart TB
     LB1 --> LB2 --> LB3
     LS1 --> LS2 --> LS3 --> LS4
 ```
+## Security Approach
+
+Security controls are intentionally implemented **outside of the LLM**.
+
+This project focuses on three main control layers:
+
+- **Input Security**
+  - Prompt injection detection
+  - Fail-fast blocking before the RAG pipeline
+
+- **Output Security**
+  - Detection of personally identifiable information (PII)
+  - Redaction of sensitive data before returning responses
+
+- **Audit Logging**
+  - Structured JSON logs
+  - Explicit security events (`blocked_input`, `pii_detected`)
+  - Designed for traceability and future compliance
 
 ---
 
@@ -101,26 +141,58 @@ sequenceDiagram
 ```
 
 ---
+## Validation & Testing
 
-## Validation and Testing (Phase 1 & 2)
+All validation in this phase was performed manually to ensure full control and understanding
+of system behavior.
 
-This section documents the **manual validation performed** during local development.
-The goal is to validate **security behavior**, not model quality.
+The goal was **not model quality**, but **security correctness**.
+
+### Evidence (Screenshots)
+
+The following screenshots document the validation performed during this phase:
+
+- API startup
+- Swagger availability
+- Baseline RAG response
+- Prompt injection blocking
+- Secure mode startup
+- PII redaction
+- Audit logs
+
+Screenshots are available under:
+
+docs/screenshots/
 
 
-### Test 1 
-### API Startup
+## Lessons Learned
 
-- Command executed:
-  uvicorn app.main:app --reload
-- Expected result:
-  - API starts without errors
-  - Swagger UI available at /docs
+Some key lessons from this first version:
 
+- Python version compatibility matters more than expected (Python 3.14 caused dependency failures)
+- Security controls must be validated, not assumed
+- Mocking the LLM is essential to test security independently of providers
+- Running in different modes surfaced configuration-related issues early
+- Many issues only appeared during hands-on testing, not during design
 
+These lessons directly influence the design of future versions.
 
-## Notes
+## Out of Scope (For Now)
 
-- Security controls are external to the LLM.
-- Mermaid blocks are isolated and closed correctly.
-- This README can be uploaded directly to GitHub without editing.
+The following topics are intentionally not covered in this version:
+
+- Model accuracy evaluation
+- Performance and load testing
+- Cloud-native authentication and IAM
+- Multi-tenant isolation
+- Production-grade persistence
+
+These areas will be addressed in future iterations.
+## Next Steps
+
+Planned next steps include:
+
+- Threat modeling based on this architecture
+- Mapping controls to OWASP LLM Top 10
+- Evolving the architecture to a cloud-ready version
+- Introducing automated security tests
