@@ -24,7 +24,7 @@ Es una exploración **orientada a la ingeniería y a la seguridad** de sistemas 
 - Aplicar **controles de seguridad prácticos**, inspirados en el OWASP LLM Top 10:
   - Prompt injection y jailbreaks
   - Fugas de datos y exposición de PII
-  - Riesgos en la ingesta y data poisoning
+  - Riesgos en la ingesta de datos y data poisoning
   - Prevención de abuso y auditoría
 - Preparar sistemas para **entornos similares a los empresariales**:
   - Configuración multi-entorno
@@ -94,8 +94,6 @@ Comprender cómo:
 - detectar abusos,
 - auditar comportamientos,
 - y evolucionar arquitecturas de forma segura,
-
-se está convirtiendo en una **competencia clave** para perfiles de seguridad y cloud.
 
 Este repositorio documenta ese camino.
 

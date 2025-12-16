@@ -95,8 +95,6 @@ Understanding how to:
 - audit behavior,
 - and evolve architectures safely,
 
-is becoming a **core skill** for security and cloud professionals.
-
 This repository documents that journey.
 
 ---
