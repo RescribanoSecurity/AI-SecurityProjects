@@ -1,6 +1,6 @@
 # AI Security Learning Lab (LLMs · Secure RAG · Cloud · MLOps)
 
-📄 This README is available in:
+This README is available in:
 - 🇬🇧 English (this document)
 - 🇪🇸 Español → [README_ES.md](README_ES.md)
 
@@ -8,27 +8,27 @@
 
 ## Overview
 
-This repository is my personal **AI Security learning lab**, focused on evolving from **Cloud Security** into **AI / LLM Security** (AI Cloud Security Architect profile).
+This repository is my personal **AI Security learning lab**, focused on evolving from **Cloud Security** into **AI / LLM Security**, with the long-term goal of an **AI Cloud Security Architect** profile.
 
-The goal is to **build real systems from scratch**, document architectural decisions, understand risks, and apply practical security controls to LLM-based applications.
+The objective is to **build real AI systems from scratch**, make architectural and security decisions explicit, validate them through hands-on testing, and document both results and lessons learned.
 
-This is not a tutorial repository.  
-It is an **engineering-first, security-first exploration** of modern AI systems.
+This is **not a tutorial repository**.  
+It is an **engineering-first, security-first exploration** of modern LLM-based systems.
 
 ---
 
 ## Learning Objectives
 
-- Understand how **LLMs** work internally (context, prompts, generation, limits).
-- Design and build **secure RAG (Retrieval-Augmented Generation)** pipelines.
-- Apply **real-world AI security controls**, inspired by OWASP LLM Top 10:
-  - Prompt Injection & Jailbreaks
-  - Data Leakage & PII Exposure
-  - Ingestion risks & data poisoning
-  - Abuse prevention & auditability
+- Understand how **LLMs** work internally (context handling, prompts, generation limits).
+- Design and build **secure Retrieval-Augmented Generation (RAG)** pipelines.
+- Apply **practical AI security controls**, inspired by OWASP LLM Top 10:
+  - Prompt injection and jailbreaks
+  - Data leakage and PII exposure
+  - Ingestion risks and data poisoning
+  - Abuse prevention and auditability
 - Prepare systems for **enterprise-like environments**:
   - Multi-environment configuration
-  - Observability & logging
+  - Observability and structured logging
   - Cloud-ready architecture
   - MLOps foundations
 
@@ -36,45 +36,51 @@ It is an **engineering-first, security-first exploration** of modern AI systems.
 
 ## Projects
 
-### 🔐 Secure RAG from Scratch
-📂 `secure-rag-from-scratch/`
+### Secure RAG from Scratch
+ `secure-rag-from-scratch/`
 
-A secure-by-design RAG system built incrementally:
+A **security-first RAG system**, built incrementally and validated through real execution and testing.
 
-- **Phase 1 – Local baseline**
+**Current scope includes:**
+
+- **Local baseline**
   - In-memory vector store
-  - Mock LLM (no external dependencies)
+  - Mock LLM (provider-independent)
   - Input security (prompt injection detection)
 
-- **Phase 2 – Secure local mode**
-  - Output security (PII detection & redaction)
+- **Secure local mode**
+  - Output security (PII detection and redaction)
   - Structured audit logging
-  - Environment-based feature flags (`APP_MODE`)
+  - Environment-based execution modes (`APP_MODE`)
+  - Manual validation with documented evidence
 
-👉 Full technical documentation inside:
-- 🇬🇧 [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
+Each phase is **runnable, testable, and documented**, including design decisions and lessons learned.
+
+ Full technical documentation:
+- EN [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
 - 🇪🇸 [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
 
 ---
 
 ## Design Philosophy
 
-- **Incremental by phases**: every phase is runnable and reviewable.
+- **Incremental by phases**: each phase is stable, reviewable, and extensible.
 - **Security as a first-class concern**, not an afterthought.
-- **Decoupled architecture**: security does not depend on the LLM provider or vector store.
-- **Local-first, cloud-ready**: avoid unnecessary complexity early, but design for scale.
+- **Decoupled architecture**: security controls are independent of LLM providers or vector stores.
+- **Local-first, cloud-ready**: reduce early complexity while designing for future scale.
 
 ---
 
 ## Roadmap
 
 - [x] Secure RAG local baseline
-- [x] Output security & audit logging
+- [x] Output security and audit logging
+- [x] Manual validation and documented evidence
 - [ ] Vector store abstraction (local vs cloud)
-- [ ] Docker & containerized deployment
+- [ ] Docker and containerized deployment
 - [ ] Cloud-native vector stores (OpenSearch / Azure AI Search)
-- [ ] CI/CD & automated security tests
-- [ ] Threat modeling & OWASP LLM Top 10 mapping
+- [ ] CI/CD and automated security testing
+- [ ] Threat modeling and OWASP LLM Top 10 mapping
 
 ---
 
@@ -84,15 +90,17 @@ Modern AI systems **will be attacked**.
 
 Understanding how to:
 - design them securely,
+- validate security controls,
 - detect abuse,
-- audit decisions,
-- and evolve safely,
+- audit behavior,
+- and evolve architectures safely,
 
-is a critical skill for modern security and cloud professionals.
+is becoming a **core skill** for security and cloud professionals.
 
 This repository documents that journey.
 
 ---
 
 ## License
+
 MIT

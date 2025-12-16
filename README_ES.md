@@ -1,88 +1,106 @@
-# Laboratorio de Seguridad en IA (LLMs · RAG Seguro · Cloud · MLOps)
+# AI Security Learning Lab (LLMs · Secure RAG · Cloud · MLOps)
 
-📄 Este README está disponible en:
-- 🇬🇧 English → [README.md](README.md)
+ Este README está disponible en:
+- EN English → [README.md](README.md)
 - 🇪🇸 Español (este documento)
 
 ---
 
-## Visión general
+## Visión General
 
-Este repositorio es mi **laboratorio personal de aprendizaje en seguridad de Inteligencia Artificial**, con el objetivo de evolucionar desde **Cloud Security** hacia perfiles de **AI / LLM Security** o **AI Cloud Security Architect**.
+Este repositorio es mi **laboratorio personal de aprendizaje en seguridad de IA**, enfocado en evolucionar desde **Cloud Security** hacia **Seguridad en IA / LLM**, con el objetivo a largo plazo de un perfil de **AI Cloud Security Architect**.
 
-El enfoque es **construir sistemas reales desde cero**, documentando decisiones técnicas, errores reales y controles de seguridad aplicables a entornos empresariales.
+El objetivo es **construir sistemas reales de IA desde cero**, hacer explícitas las decisiones arquitectónicas y de seguridad, validarlas mediante pruebas prácticas y documentar tanto los resultados como las lecciones aprendidas.
 
-No es un repositorio de tutoriales.  
-Es un **ejercicio de ingeniería y seguridad aplicada**.
+Este **no es un repositorio de tutoriales**.  
+Es una exploración **orientada a la ingeniería y a la seguridad** de sistemas modernos basados en LLM.
 
 ---
 
-## Objetivos de aprendizaje
+## Objetivos de Aprendizaje
 
-- Comprender cómo funcionan los **LLMs** (contexto, prompts, generación, limitaciones).
-- Diseñar y construir **RAGs seguros (Retrieval-Augmented Generation)**.
-- Aplicar controles reales de seguridad inspirados en **OWASP LLM Top 10**:
-  - Prompt Injection y Jailbreaks
-  - Fugas de información y PII
-  - Riesgos en ingestión de datos
-  - Auditoría y trazabilidad
-- Preparar arquitecturas **listas para entornos cloud empresariales**.
+- Comprender cómo funcionan internamente los **LLM** (gestión de contexto, prompts, límites de generación).
+- Diseñar y construir pipelines **RAG (Retrieval-Augmented Generation) seguros**.
+- Aplicar **controles de seguridad prácticos**, inspirados en el OWASP LLM Top 10:
+  - Prompt injection y jailbreaks
+  - Fugas de datos y exposición de PII
+  - Riesgos en la ingesta y data poisoning
+  - Prevención de abuso y auditoría
+- Preparar sistemas para **entornos similares a los empresariales**:
+  - Configuración multi-entorno
+  - Observabilidad y logging estructurado
+  - Arquitectura preparada para cloud
+  - Fundamentos de MLOps
 
 ---
 
 ## Proyectos
 
-### 🔐 Secure RAG from Scratch
-📂 `secure-rag-from-scratch/`
+###  Secure RAG from Scratch
+ `secure-rag-from-scratch/`
 
-Sistema RAG seguro construido de forma incremental:
+Un sistema RAG **diseñado con la seguridad como eje central**, construido de forma incremental y validado mediante ejecución y pruebas reales.
 
-- **Fase 1 – Baseline local**
+**Alcance actual:**
+
+- **Baseline local**
   - Vector store en memoria
-  - LLM simulado (mock)
-  - Seguridad de entrada (prompt injection)
+  - LLM simulado (independiente del proveedor)
+  - Seguridad de entrada (detección de prompt injection)
 
-- **Fase 2 – Modo local seguro**
+- **Modo local seguro**
   - Seguridad de salida (detección y redacción de PII)
   - Auditoría estructurada
-  - Activación por entorno (`APP_MODE`)
+  - Modos de ejecución basados en entorno (`APP_MODE`)
+  - Validación manual con evidencias documentadas
 
-📘 Documentación técnica:
+Cada fase es **ejecutable, comprobable y documentada**, incluyendo decisiones de diseño y lecciones aprendidas.
+
+ Documentación técnica completa:
 - 🇬🇧 [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
-- 🇪🇸 [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
+- EN [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
 
 ---
 
-## Filosofía de diseño
+## Filosofía de Diseño
 
-- Evolución por fases claras
-- Seguridad como capa transversal
-- Separación entre lógica, infraestructura y proveedor
-- Diseño local-first pero cloud-ready
+- **Incremental por fases**: cada fase es estable, revisable y extensible.
+- **La seguridad como elemento de primer nivel**, no como añadido posterior.
+- **Arquitectura desacoplada**: los controles de seguridad no dependen del proveedor de LLM ni del vector store.
+- **Local-first, cloud-ready**: reducir complejidad inicial sin perder visión de escalado futuro.
 
 ---
 
 ## Roadmap
 
-- [x] RAG local funcional
+- [x] Baseline local de Secure RAG
 - [x] Seguridad de salida y auditoría
-- [ ] Abstracción de infraestructura
-- [ ] Contenedores y despliegue cloud
-- [ ] Integración con servicios vectoriales empresariales
-- [ ] Automatización y MLOps
+- [x] Validación manual y evidencias documentadas
+- [ ] Abstracción del vector store (local vs cloud)
+- [ ] Docker y despliegue en contenedores
+- [ ] Vector stores cloud-native (OpenSearch / Azure AI Search)
+- [ ] CI/CD y pruebas de seguridad automatizadas
+- [ ] Threat modeling y mapeo OWASP LLM Top 10
 
 ---
 
 ## Por qué existe este repositorio
 
-Los sistemas de IA:
-- van a fallar,
-- van a ser atacados,
-- y van a manejar datos sensibles.
+Los sistemas modernos de IA **van a ser atacados**.
 
-Este repositorio documenta cómo **diseñarlos y protegerlos de forma responsable**.
+Comprender cómo:
+- diseñarlos de forma segura,
+- validar controles de seguridad,
+- detectar abusos,
+- auditar comportamientos,
+- y evolucionar arquitecturas de forma segura,
+
+se está convirtiendo en una **competencia clave** para perfiles de seguridad y cloud.
+
+Este repositorio documenta ese camino.
 
 ---
 
 ## Licencia
+
 MIT
