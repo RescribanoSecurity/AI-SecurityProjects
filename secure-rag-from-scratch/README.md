@@ -169,11 +169,10 @@ docs/screenshots/
 
 Some key lessons from this first version:
 
-- Python version compatibility matters more than expected (Python 3.14 caused dependency failures)
 - Security controls must be validated, not assumed
 - Mocking the LLM is essential to test security independently of providers
 - Running in different modes surfaced configuration-related issues early
-- Many issues only appeared during hands-on testing, not during design
+
 
 These lessons directly influence the design of future versions.
 
@@ -188,6 +187,7 @@ The following topics are intentionally not covered in this version:
 - Production-grade persistence
 
 These areas will be addressed in future iterations.
+
 ## Next Steps
 
 Planned next steps include:
