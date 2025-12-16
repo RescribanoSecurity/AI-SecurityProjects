@@ -150,7 +150,7 @@ El objetivo no fue la **calidad del modelo**, sino la **correcta implementación
 
 ### Evidencias (Capturas de Pantalla)
 
-The following screenshots document the validation performed during this phase:
+Las siguientes capturas documentan las validaciones realizadas:
 
 - Arranque de la API
 - Disponibilidad de Swagger
@@ -174,7 +174,7 @@ Algunas de las principales lecciones de esta primera versión:
 - Ejecutar el sistema en distintos modos ha permitido detectar problemas de configuración de forma temprana
 
 
-These lessons directly influence the design of future versions.
+Estas lecciones influyen directamente en el diseño de las siguientes versiones.
 
 ## Fuera de Alcance (Por Ahora)
 
