@@ -1,16 +1,17 @@
-# AI Security Learning Lab (LLMs · Secure RAG · Cloud · MLOps)
+# AI Security Learning Lab  
+*(LLMs · Secure RAG · Cloud · MLOps)*
 
 This README is available in:
-- EN English (this document)
-- ES Español → [README_ES.md](README_ES.md)
+- 🇬🇧 EN English (this document)
+- 🇪🇸 ES Español → [README_ES.md](README_ES.md)
 
 ---
 
 ## Overview
 
-This repository is my personal **AI Security learning lab**, focused on evolving from **Cloud Security** into **AI / LLM Security**, with the long-term goal of an **AI Cloud Security Architect** profile.
+This repository is my personal **AI Security learning lab and project index**, documenting my transition from **Cloud Security** into **AI / LLM Security**, with the long-term goal of an **AI Cloud Security Architect** profile.
 
-The objective is to **build real AI systems from scratch**, make architectural and security decisions explicit, validate them through hands-on testing, and document both results and lessons learned.
+The focus is on **building real AI systems from scratch**, making **security and architectural decisions explicit**, validating them through hands-on testing, and documenting both **results and failures**.
 
 This is **not a tutorial repository**.  
 It is an **engineering-first, security-first exploration** of modern LLM-based systems.
@@ -19,9 +20,9 @@ It is an **engineering-first, security-first exploration** of modern LLM-based s
 
 ## Learning Objectives
 
-- Understand how **LLMs** work internally (context handling, prompts, generation limits).
+- Understand how **LLMs** work internally (context windows, prompts, generation behavior).
 - Design and build **secure Retrieval-Augmented Generation (RAG)** pipelines.
-- Apply **practical AI security controls**, inspired by OWASP LLM Top 10:
+- Apply **practical AI security controls**, inspired by the **OWASP LLM Top 10**:
   - Prompt injection and jailbreaks
   - Data leakage and PII exposure
   - Ingestion risks and data poisoning
@@ -36,29 +37,53 @@ It is an **engineering-first, security-first exploration** of modern LLM-based s
 
 ## Projects
 
-### Secure RAG from Scratch
- `secure-rag-from-scratch/`
+### 🔬 Secure RAG from Scratch — Version 1 (Legacy Lab)
+📁 `secure-rag-from-scratch/`
 
-A **security-first RAG system**, built incrementally and validated through real execution and testing.
+This project represents the **first exploratory iteration** of Secure RAG.
 
-**Current scope includes:**
+Its goal was to:
+- Understand the core mechanics of RAG systems
+- Experiment with early **input security controls**
+- Validate basic assumptions before introducing infrastructure complexity
 
-- **Local baseline**
-  - In-memory vector store
-  - Mock LLM (provider-independent)
-  - Input security (prompt injection detection)
+**Key characteristics of V1:**
+- Local-only execution
+- In-memory vector store
+- Mock LLM (provider-independent)
+- Initial prompt injection detection
+- Manual testing and documentation
 
-- **Secure local mode**
-  - Output security (PII detection and redaction)
-  - Structured audit logging
-  - Environment-based execution modes (`APP_MODE`)
-  - Manual validation with documented evidence
+⚠️ **This version is now considered a legacy learning lab.**
 
-Each phase is **runnable, testable, and documented**, including design decisions and lessons learned.
+👉 The actively developed and extended version is **Secure RAG v2**, available as a standalone repository.
 
- Full technical documentation:
-- EN [secure-rag-from-scratch/README.md](secure-rag-from-scratch/README.md)
-- ES [secure-rag-from-scratch/README_ES.md](secure-rag-from-scratch/README_ES.md)
+---
+
+### 🚀 Secure RAG from Scratch — Version 2 (Main Project)
+
+🔗 Repository:  
+https://github.com/RescribanoSecurity/secure-rag-from-scratch-v2
+
+Secure RAG v2 is the **main, production-grade learning project**, evolving directly from the lessons learned in V1.
+
+**Focus areas include:**
+- Modular RAG pipeline architecture
+- Input **and output security controls**
+- PII detection, redaction, and output blocking
+- OWASP LLM Top 10 mapping
+- Dockerized infrastructure
+- Real vector database (Qdrant)
+- Auditability and request tracing
+- Visual validation via Streamlit UI
+
+This project is:
+- Runnable
+- Testable
+- Evidence-driven
+- Explicit about what is implemented and what is not
+
+📄 Full documentation, screenshots, and technical presentations are maintained **inside the V2 repository**.
 
 ---
 
@@ -68,19 +93,21 @@ Each phase is **runnable, testable, and documented**, including design decisions
 - **Security as a first-class concern**, not an afterthought.
 - **Decoupled architecture**: security controls are independent of LLM providers or vector stores.
 - **Local-first, cloud-ready**: reduce early complexity while designing for future scale.
+- **Failures are documented**, not hidden.
 
 ---
 
-## Roadmap
+## Roadmap (High-Level)
 
-- [x] Secure RAG local baseline
-- [x] Output security and audit logging
-- [x] Manual validation and documented evidence
-- [ ] Vector store abstraction (local vs cloud)
-- [ ] Docker and containerized deployment
+- [x] Secure RAG local baseline (V1)
+- [x] Input security controls
+- [x] Output security (PII detection, redaction, blocking)
+- [x] Manual validation with documented evidence
 - [ ] Cloud-native vector stores (OpenSearch / Azure AI Search)
+- [ ] Authentication and identity-aware logging
+- [ ] Persistent audit logs
 - [ ] CI/CD and automated security testing
-- [ ] Threat modeling and OWASP LLM Top 10 mapping
+- [ ] Threat modeling and full OWASP LLM Top 10 enforcement
 
 ---
 
@@ -95,10 +122,6 @@ Understanding how to:
 - audit behavior,
 - and evolve architectures safely,
 
+is becoming a **core security skill**.
+
 This repository documents that journey.
-
----
-
-## License
-
-MIT
